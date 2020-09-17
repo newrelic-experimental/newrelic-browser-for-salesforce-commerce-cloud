@@ -1,8 +1,3 @@
-# Salesforce Commerce Cloud plugin for New Relic Browser
-
-## To Do
-- Move `beacon` params into some simple per-application configuration setup that is inject as JSON in the page
-
 [![Experimental Project header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png)](https://opensource.newrelic.com/oss-category/#experimental)
 
 # New Relic Browser for SalesForce Commerce Cloud
