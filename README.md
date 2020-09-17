@@ -18,7 +18,7 @@ A plugin to SalesForce Commerce Cloud (aka SFCC aka Demandware) that adds the Ne
   - Deployment Method: `Copy/Paste Javascript code` method.
   - Instrumentation: 'Pro' (recommended) or 'Lite' Instrumentation.
     - SFCC sites are not Single-Page Apps (as of the writing of this README), so using 'Pro + SPA' will cause the wrong dashboards to appear in the UI.
-  -Name your app: choose "No. (Name your standalone app)" and name it however you like.
+  - Name your app: choose "No. (Name your standalone app)" and name it however you like.
     - Do not associate it with an existing APM application, as this will have unintended consequences in the UI!
 3. Replace the contents of `cartridges/plugin_newrelic_browser/cartridge/client/default/js/nr-agent.js` with your Copy/Paste snippet.
     - You MUST comment-out or delete the `<script type="text/javascript">` and `</script>` HTML tags from your snippet. The portion you *do* want to preserve starts with: `window.NREUM||(NREUM={})...`
