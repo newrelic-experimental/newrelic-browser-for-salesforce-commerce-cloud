@@ -21,9 +21,12 @@ A plugin to SalesForce Commerce Cloud (aka SFCC aka Demandware) that adds the Ne
   - Name your app: choose "No. (Name your standalone app)" and name it however you like.
     - Do not associate it with an existing APM application, as this will have unintended consequences in the UI!
 3. Replace the contents of `cartridges/plugin_newrelic_browser/cartridge/client/default/js/nr-agent.js` with your Copy/Paste snippet.
-    - You MUST comment-out or delete the `<script type="text/javascript">` and `</script>` HTML tags from your snippet. The portion you *do* want to preserve starts with: `window.NREUM||(NREUM={})...`
-4. Run `npm run compile:js` in the repository root folder to create client-side assets. These are found in `cartridges/plugin_newrelic_browser/cartridge/state`.
-5. Configure `dw.json` with your Business Manager or API client credentials and your Site version. (There are examples of `dw.json` packaged with this plugin for both authentication types).
+  - You MUST comment-out or delete the `<script type="text/javascript">` and `</script>` HTML tags from your snippet. 
+  - The portion you *do* want to preserve starts with: `window.NREUM||(NREUM={})...`
+4. Run `npm run compile:js` in the repository root folder to create client-side assets.
+  - These are found in `cartridges/plugin_newrelic_browser/cartridge/state`.
+5. Configure `dw.json` with your Business Manager or API client credentials and your Site version.
+  - There are examples of `dw.json` packaged with this plugin for both authentication types.
 
 ## Deployment & Verification
 1. Upload the plugin by running `npm run uploadCartridge` in the repository root folder.
