@@ -13,16 +13,16 @@ A plugin to SalesForce Commerce Cloud (aka SFCC aka Demandware) that adds the Ne
 1. Edit `package.json`, modify `paths.base` property to point to your local `app_storefront_base` cartridge.
   - You can find the [Store Front Reference Architecture](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture) here if you don't have it.
 2. Open the [New Relic Browser UI](https://one.newrelic.com/launcher/browser-nr1.browser-home) and click the `(+) Add More` button in the top-right corner.
-    **Note:** if you have access to multiple acccounts, be sure to choose the account you want to deploy to from the pull-down menu.
+  - If you have access to multiple acccounts, be sure to choose the account you want to deploy to from the pull-down menu.
 3. In the "Get started with New Relic Browser" page, choose the following:
   - Deployment Method: `Copy/Paste Javascript code` method.
   - Instrumentation: 'Pro' (recommended) or 'Lite' Instrumentation.
-    **Note:** 'Pro + SPA' will work, but SFCC sites are not Single-Page Apps (as of the writing of this README), so those postions of the UI will be empty. Using 'Pro' or 'Lite' will hide those pages and the Summary page will populate properly.
-  - Name your app: choose "No. (Name your standalone app)" and name it however you like.
-    **Note:** Do not associate it with an existing APM application, as this will have unintended consequences in the UI!
+    - SFCC sites are not Single-Page Apps (as of the writing of this README), so using 'Pro + SPA' will cause the wrong dashboards to appear in the UI.
+  -Name your app: choose "No. (Name your standalone app)" and name it however you like.
+    - Do not associate it with an existing APM application, as this will have unintended consequences in the UI!
 3. Replace the contents of `cartridges/plugin_newrelic_browser/cartridge/client/default/js/nr-agent.js` with your Copy/Paste snippet.
-   **Note:** You MUST comment-out or delete the `<script type="text/javascript">` and `</script>` HTML tags from your snippet. The portion you *do* want to preserve starts with: `window.NREUM||(NREUM={})...`
-4. Run `npm run compile:js` in the repository root folder to create client-side assets. These are found in `cartridges/plugin_newrelic_browser/cartridge/state`
+    - You MUST comment-out or delete the `<script type="text/javascript">` and `</script>` HTML tags from your snippet. The portion you *do* want to preserve starts with: `window.NREUM||(NREUM={})...`
+4. Run `npm run compile:js` in the repository root folder to create client-side assets. These are found in `cartridges/plugin_newrelic_browser/cartridge/state`.
 5. Configure `dw.json` with your Business Manager or API client credentials and your Site version. (There are examples of `dw.json` packaged with this plugin for both authentication types).
 
 ## Deployment & Verification
