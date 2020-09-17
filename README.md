@@ -1,50 +1,55 @@
+# Salesforce Commerce Cloud plugin for New Relic Browser
+
+## To Do
+- Move `beacon` params into some simple per-application configuration setup that is inject as JSON in the page
+
 [![Experimental Project header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png)](https://opensource.newrelic.com/oss-category/#experimental)
 
-# [Project Name] [build badges go here when available]
+# New Relic Browser for SalesForce Commerce Cloud
 
->[Brief description - what is the project and value does it provide? How often should users expect to get releases? How is versioning set up? Where does this project want to go?]
+A plugin to SalesForce Commerce Cloud (aka SFCC aka Demandware) that adds the New Relic Browser Javascript snippet to the header of every SFCC Site page.
 
-## Installation
+## Local Installation
 
-> [Include a step-by-step procedure on how to get your code installed. Be sure to include any third-party dependencies that need to be installed separately]
+1. Clone this repository
+2. Install the project's dependencies by running `npm install` in the repository root folder.
 
-## Getting Started
+## Configuration
+1. Edit `package.json`, modify `paths.base` property to point to your local `app_storefront_base` cartridge.
+  - You can find the [Store Front Reference Architecture](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture) here if you don't have it.
+2. Open the [New Relic Browser UI](https://one.newrelic.com/launcher/browser-nr1.browser-home) and click the `(+) Add More` button in the top-right corner.
+    **Note:** if you have access to multiple acccounts, be sure to choose the account you want to deploy to from the pull-down menu.
+3. In the "Get started with New Relic Browser" page, choose the following:
+  - Deployment Method: `Copy/Paste Javascript code` method.
+  - Instrumentation: 'Pro' (recommended) or 'Lite' Instrumentation.
+    **Note:** 'Pro + SPA' will work, but SFCC sites are not Single-Page Apps (as of the writing of this README), so those postions of the UI will be empty. Using 'Pro' or 'Lite' will hide those pages and the Summary page will populate properly.
+  - Name your app: choose "No. (Name your standalone app)" and name it however you like.
+    **Note:** Do not associate it with an existing APM application, as this will have unintended consequences in the UI!
+3. Replace the contents of `cartridges/plugin_newrelic_browser/cartridge/client/default/js/nr-agent.js` with your Copy/Paste snippet.
+   **Note:** You MUST comment-out or delete the `<script type="text/javascript">` and `</script>` HTML tags from your snippet. The portion you *do* want to preserve starts with: `window.NREUM||(NREUM={})...`
+4. Run `npm run compile:js` in the repository root folder to create client-side assets. These are found in `cartridges/plugin_newrelic_browser/cartridge/state`
+5. Configure `dw.json` with your Business Manager or API client credentials and your Site version. (There are examples of `dw.json` packaged with this plugin for both authentication types).
 
->[Simple steps to start working with the software similar to a "Hello World"]
+## Deployment & Verification
+1. Upload the plugin by running `npm run uploadCartridge` in the repository root folder.
+2. In SFCC Business Manager, add `plugin_newrelic_browser` to your site's cartridge path (Administration -> Sites -> Manage Sites -> <Your_site> -> Settings)
+3. Once deployed, you can use New Relic Browser as usual, your application will appear like any other.
 
-## Usage
-
->[**Optional** - Include more thorough instructions on how to use the software. This section might not be needed if the Getting Started section is enough. Remove this section if it's not needed.]
-
-## Building
-
->[**Optional** - Include this section if users will need to follow specific instructions to build the software from source. Be sure to include any third party build dependencies that need to be installed separately. Remove this section if it's not needed.]
-
-## Testing
-
->[**Optional** - Include instructions on how to run tests if we include tests with the codebase. Remove this section if it's not needed.]
+### Notes
+- Make sure your site is receiving browser traffic before checking for data.
+- `uBlock Origin` or similar filters can break the page load once the Browser JS snippet has been added.
 
 ## Support
-
-New Relic has open-sourced this project. This project is provided AS-IS WITHOUT WARRANTY OR DEDICATED SUPPORT. Issues and contributions should be reported to the project here on GitHub.
-
->[Choose 1 of the 2 options below for Support details, and remove the other one.]
-
->[Option 1 - no specific thread in Community]
->We encourage you to bring your experiences and questions to the [Explorers Hub](https://discuss.newrelic.com) where our community members collaborate on solutions and new ideas.
-
->[Option 2 - thread in Community]
->New Relic hosts and moderates an online forum where customers can interact with New Relic employees as well as other customers to get help and share best practices. Like all official New Relic open source projects, there's a related Community topic in the New Relic Explorers Hub.
->You can find this project's topic/threads here: [URL for Community thread]
+New Relic has open-sourced this project. This project is provided AS-IS WITHOUT WARRANTY OR DEDICATED SUPPORT. Issues and contributions should be reported to the project here on GitHub. We encourage you to bring your experiences and questions to the [Explorers Hub](https://discuss.newrelic.com) where our community members collaborate on solutions and new ideas.
 
 ## Contributing
 
-We encourage your contributions to improve [Project Name]! Keep in mind when you submit your pull request, you'll need to sign the CLA via the click-through using CLA-Assistant. You only have to sign the CLA one time per project.
+We encourage your contributions to improve Salesforce Commerce Cloud for New Relic Browser! Keep in mind when you submit your pull request, you'll need to sign the CLA via the click-through using CLA-Assistant. You only have to sign the CLA one time per project.
 
-If you have any questions, or to execute our corporate CLA, required if your contribution is on behalf of a company,  please drop us an email at opensource@newrelic.com.
+If you have any questions, or to execute our corporate CLA, required if your contribution is on behalf of a company, please drop us an email at opensource@newrelic.com.
 
 ## License
 
-[Project Name] is licensed under the [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.txt) License.
+Salesforce Commerce Cloud for New Relic Browser is licensed under the [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.txt) License.
 
->[If applicable: [Project Name] also uses source code from third-party libraries. You can find full details on which libraries are used and the terms under which they are licensed in the third-party notices document.]
+Salesforce Commerce Cloud for New Relic Browser also uses source code from third-party libraries. You can find full details on which libraries are used and the terms under which they are licensed in the [third-party notices](./THIRD_PARTY_NOTICES.md) document.

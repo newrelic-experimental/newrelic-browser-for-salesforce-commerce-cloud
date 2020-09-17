@@ -1,0 +1,6 @@
+{
+    "hostname": "<Your_SFCC_hostname_only_not_url>",
+    "username": "<Your_SFCC_user_name>",
+    "password": "<Your_SFCC_password>",
+    "code-version": "<Your_site_version>"
+}

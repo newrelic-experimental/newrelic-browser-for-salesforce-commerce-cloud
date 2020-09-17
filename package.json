@@ -1,0 +1,21 @@
+{
+  "name": "plugin_newrelic_browser",
+  "version": "0.1.0",
+  "description": "New Relic Browser plugin for Salesforce Commerce Cloud",
+  "main": "index.js",
+  "scripts": {
+    "compile:js": "sgmf-scripts --compile js",
+    "upload": "sgmf-scripts --upload",
+    "uploadCartridge": "sgmf-scripts --uploadCartridge plugin_newrelic_browser",
+    "watch": "sgmf-scripts --watch",
+    "watch:static": "sgmf-scripts --watch static"
+  },
+  "author": "Mike Summers",
+  "license": "Apache 2.0",
+  "devDependencies": {
+    "sgmf-scripts": "^2.4.1"
+  },
+  "paths": {
+    "base": "../storefront-reference-architecture/cartridges/app_storefront_base/"
+  }
+}

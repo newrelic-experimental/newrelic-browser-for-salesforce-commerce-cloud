@@ -1,0 +1,1 @@
+<script src="${URLUtils.staticURL('/js/nr-agent.js')}"></script>

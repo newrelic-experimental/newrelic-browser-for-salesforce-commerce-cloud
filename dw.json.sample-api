@@ -1,0 +1,6 @@
+{
+    "hostname": "<Your_SFCC_hostname_only_not_url>",
+    "client_id": "<Your_SFCC_client_api_id>",
+    "client_secret": "<Your_SFCC_client_api_secret>",
+    "code-version": "<Your_site_version>"
+}
