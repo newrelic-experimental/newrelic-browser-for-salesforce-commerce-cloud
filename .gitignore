@@ -1,0 +1,4 @@
+node_modules
+dw.json
+cartridges/plugin_newrelic_browser/cartridge/static
+.DS_Store

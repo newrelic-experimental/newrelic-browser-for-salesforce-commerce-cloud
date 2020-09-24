@@ -1,4 +1,4 @@
-[![Experimental Project header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png)](https://opensource.newrelic.com/oss-category/#experimental)
+[![New Relic Experimental header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png)](https://opensource.newrelic.com/oss-category/#new-relic-experimental)
 
 # New Relic Browser for SalesForce Commerce Cloud
 
@@ -21,7 +21,7 @@ A plugin to SalesForce Commerce Cloud (aka SFCC aka Demandware) that adds the Ne
     - Name your app: choose "No. (Name your standalone app)" and name it however you like.
       - Do not associate it with an existing APM application, as this will have unintended consequences in the UI!
 4. Replace the contents of `cartridges/plugin_newrelic_browser/cartridge/client/default/js/nr-agent.js` with your Copy/Paste snippet.
-    - You MUST comment-out or delete the `<script type="text/javascript">` and `</script>` HTML tags from your snippet. 
+    - You MUST comment-out or delete the `<script type="text/javascript">` and `</script>` HTML tags from your snippet.
     - The portion you *do* want to preserve starts with: `window.NREUM||(NREUM={})...`
 4. Run `npm run compile:js` in the repository root folder to create client-side assets.
     - These are found in `cartridges/plugin_newrelic_browser/cartridge/state`.
@@ -38,6 +38,7 @@ A plugin to SalesForce Commerce Cloud (aka SFCC aka Demandware) that adds the Ne
 - `uBlock Origin` or similar filters can break the page load once the Browser JS snippet has been added.
 
 ## Support
+
 New Relic has open-sourced this project. This project is provided AS-IS WITHOUT WARRANTY OR DEDICATED SUPPORT. Issues and contributions should be reported to the project here on GitHub. We encourage you to bring your experiences and questions to the [Explorers Hub](https://discuss.newrelic.com) where our community members collaborate on solutions and new ideas.
 
 ## Contributing
